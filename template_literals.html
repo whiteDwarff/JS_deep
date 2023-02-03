@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     
+    </style>
+</head>
+
+<body>
+
+    <script>
+    function tagged(a,b){
+        console.log(a); // -> 백틱안에 있는 문자들을 array로 담아서 보관 (a), white space 포함 ${}를 기준으로 문자들을 분리해서 보관
+        console.log(b); // -> ${} 안에 선언된 변수
+    }
+    let name = 'kang'
+    tagged`안녕하세여 ${name}입니다`;
+
+    function tagged2(a,b) {
+        console.log(a[1] + b + a[0]);
+    }
+    tagged2`안녕하세여 ${name}입니다`;
+
+
+    let pant = 20, socks = 100;
+    let tagged3 = (a,b,b1) => {console.log(a[1] + b + a[0] + b1)}
+    tagged3`바지${pant} 양말${socks}`;
+
+    // let pant1 =0, socks1 = 100;
+    let tagged4 = (a,b,c) => {
+        if(b > 0 && c > 0) console.log(a[0] + b + a[1] + c);
+        else if(b <= 0) console.log(a[0] + ' 는(은) 안팔아요,' + a[1] + c + '개 있어요');
+    }
+    tagged4`바지${0} 양말${10}`;
+
+    </script>
+</body>
+</html>

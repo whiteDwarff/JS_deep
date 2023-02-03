@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        // Spread Operator = [] 대괄호 및 {}중괄호 없애주는 연산자, 내용물을 빼고 싶을 때 사용
+        // ... 사용
+        var array = ['hello', 'world'];
+        console.log(array)
+        console.log(...array)
+
+        var string = 'hello';
+        console.log(string);
+        console.log(...string); 
+        // 문자열을 하나씩 해체해서 'h', 'e', 'l', 'l', 'o' 로 출력됨
+
+
+        var a = [1,2,3];
+        var b = [4,5,];
+        var c = [...a, ...b];
+        console.log(c)
+        // 사용 : array 합치기, 복사
+
+
+        var d = [1,2,3];
+        var e = [...d];
+
+        console.log(d, e);
+        d[3] = 4;
+        console.log(d, e);
+
+        
+        console.log('--------------------------------------------------------');
+        
+
+        let obj1 = {a:1, b:2};
+        let obj2 = {...obj1, c:3};
+        console.log(obj2);
+        let obj3 = {...obj1};
+        console.log(obj3);
+        
+        let obj4 = {a:2, ...obj1};
+        // a가 중복됨, ...연산자는 중복된 값 중 제일 뒤에 선언된 값을 적용시켜줌
+        console.log(obj4);
+        
+
+        console.log('--------------------------------------------------------');
+        
+        
+        let plus = (a,b,c) => {console.log(a+b+c)};
+        plus(1,2,3);
+        
+        let array1 = [10,20,30];
+        plus(...array1);    // -> array를 함수의 파라미터 형태로 넣어서 사용
+        
+        console.log('--------------------------------------------------------');
+
+
+        // apply, call function
+
+        let person = {
+            인사 : function() {
+                if(this.name == undefined) console.log('안녕');
+                else console.log(this.name + '안녕');
+            }
+        }
+        person.인사();
+        let person2 = {
+            name : '손흥민'
+        }
+        person.인사.apply(person2); // -> person2에서 person의 인사()를 사용, 파라미터 사용시 [1,2]로 사용
+        person.인사.call(person2);  // -> 파라미터 사용 시 1,2 사용
+
+
+    </script>
+</body>
+</html>
