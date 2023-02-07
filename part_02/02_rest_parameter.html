@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+         function 함수(a,b,c) {       //  parameters
+            console.log(arguments); // arguments
+
+            for(let i =0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+            }
+        }   
+        함수(1,2,3);
+        함수('안녕', '나는', '강문호');
+        
+        console.log('--------------------------------------------------------');
+        
+        // arguments의 단점  ->  array 자료형이라 쪼개고 분리하기 귀찬다
+        
+        
+        // rest parameters ?
+        // ...parameters : 모든 parameter를 array로 만들겠다. 
+        // arguments는 parameter의 삭제, 추가가 번거롭지만 rest는 상관없다.
+        
+        function 함수2(a,b, ...parameters) {
+            console.log(parameters)
+            
+            for(let i = 0; i < parameters.length; i++) console.log(parameters[i])
+            console.log(a,b);
+            console.log(a,b,parameters)
+        }
+        
+        함수2('안녕', '나는')
+        함수2('안녕', '나는', 1,2,3,4,5,6,7,8,9)
+        함수2('안녕', '나는', 1,2,3,4,5,6,7,8,9)
+        
+        console.log('--------------------------------------------------------');
+        
+        function 함수3(...rest) {
+            for(let i=0; i < rest.length; i++) console.log(rest[i]);
+        }
+        함수3(1,2,3,4,5);
+        
+        
+        console.log('--------------------------------------------------------');
+        
+        function test(...rest) {
+            return [rest];
+        }
+        let newArray = test(1,2,3,4,5,6,7);
+        console.log(newArray);
+        console.log('--------------------------------------------------------');
+
+        let str = 'aabbbcccc', split = Array.from(str)
+     
+
+    </script>
+</body>
+</html>

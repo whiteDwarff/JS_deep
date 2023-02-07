@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <script>
+        // 1
+        function 어레이(...rest) {
+            return [rest]
+        }
+        let newArray = 어레이(1,2,3,4,5);
+        console.log(newArray);
+
+        // 2
+        console.log(Math.max(1,2,3,4,6))
+
+        let numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
+        console.log(Math.max(...numbers))
+
+        // 3
+        function sort(a) {
+            return [...a].sort().join()
+            // sort = array만 가능
+        }
+        console.log(sort('bear'));
+
+        // 4 
+        function strLength(str) {
+            let result = {};
+            [...str].forEach(function(a) {
+                console.log(a);
+                
+                if(result[a] > 0) result[a] = result[a] + 1;
+                else result[a] = 1;
+            });
+            console.log(result);
+            //forEach = array만 가능
+        }
+        strLength(('aacbbb'))
+
+
+    </script>
+    
+</body>
+</html>
