@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>+
+    
+        let name1 = 'kim';
+        let name2 = name1;
+
+        console.log(name1, name2);
+        name1 = 'kang';
+        console.log(name1, name2);
+
+        let name = {name: 'kim'};
+        // name은 pc {name:'kim'}이 있는 메모리를 가르킨다. 변수에 대입되는 값이 아님!!
+        console.log(name.name);
+
+        let nameTwo = name;
+        // name의 값이 아닌 pc 메모리를 가르킴. name의 값이 바뀌면 nameTwo의 값도 바뀜
+        name.name = {name : 'kang'};
+
+        let 이름 = {name : '김'}; // {}를 할당 시 각각의 메모리를 가르키는 화살표가 생성됨
+        let 이름2 = {name : '김'};
+        
+        /*
+            이름 == 이름2 ? => false 
+            각각의 메모리가 다르기 때문
+        */
+        function change(obj) {
+            // obj.name = 'park'
+            obj = {name : 'park'};
+            // let obj = {name : 'park'};으로 된다. 값이 변경되는게 아님
+        }
+        change(이름);
+
+
+    </script>
+</body>
+</html>
