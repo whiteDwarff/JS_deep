@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function f(a, b, ...rest) {
+        //rest parameter
+        console.log(a,b,rest);            
+        console.log(b,rest[1]);
+        }
+        f('a','b', 1,2,3,4,5);
+
+
+
+        function f2(...rest) {
+            console.log(rest);      // array에 담아서 출력
+            console.log(...rest);   // 각각의 매개변수 출력
+            for(let key in rest) console.log(rest[key]); // "
+        }
+        f2(1,2,3,4,5);
+
+        let a = [1,2,3];
+        let b = '김밥';
+        let c = [...b, ...a];
+        console.log(c);
+
+        let aa = [1,2,3];
+        let bb = ['you', 'are'];
+        let cc = function(a,b) { console.log([[...aa], ...[...bb]][1])} 
+        // [...aa] = 1,2,3 , ...[bb] = ['you', 'are'], ...[...bb] = 'you', 'are'
+        cc(a,b);
+
+        function f3(a = 5, b = a*2) { console.log(a+b )};
+        f3(3);
+
+        function array(...rest) {
+            return rest
+        }
+        let newArray = array(1,2,3,4,5);
+        console.log(newArray)
+
+        let number = [1,2,3,4,65,7,8,9,11,12,88,99]
+        console.log(Math.max(...number))
+        console.log([...number])
+
+        function sort(a) {
+            console.log(...[...a].sort());
+        } 
+        sort('bear');
+
+    </script>
+</body>
+</html>
