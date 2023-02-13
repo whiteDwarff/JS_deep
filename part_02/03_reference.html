@@ -8,37 +8,48 @@
 </head>
 <body>
     
-    <script>+
+    <script>
     
-        let name1 = 'kim';
-        let name2 = name1;
+        var 변수 = 1234;
+        var 어레이 = [1,2,3];
+        // 변수에 저장되는 reference
+        // array, object는  변수에 값이 적용되지 않음.
+        // 어레이의 값은 -> [1,2,3]에 있다 ~~
+        var obj = {name : 'kim'};
 
-        console.log(name1, name2);
-        name1 = 'kang';
-        console.log(name1, name2);
-
-        let name = {name: 'kim'};
-        // name은 pc {name:'kim'}이 있는 메모리를 가르킨다. 변수에 대입되는 값이 아님!!
-        console.log(name.name);
-
-        let nameTwo = name;
-        // name의 값이 아닌 pc 메모리를 가르킴. name의 값이 바뀌면 nameTwo의 값도 바뀜
-        name.name = {name : 'kang'};
-
-        let 이름 = {name : '김'}; // {}를 할당 시 각각의 메모리를 가르키는 화살표가 생성됨
-        let 이름2 = {name : '김'};
+        var 이름1 = 'kim';
+        var 이름2 = 이름1;
+        console.log(이름1, 이름2);
+        이름1 = 'park'
+        console.log(이름1, 이름2);
         
+        var 이름1 = {name : 'Kim'};
+        console.log(이름1.name);
+        var 이름2 = 이름1;
+        console.log(이름1, 이름2);
+        이름1.name = 'park';
+        console.log(이름1, 이름2);
+        // 이름1의 데이터는 pc메모리 중 저기에 있어요 ~~ (변수에 값을 대입한게 아님)
+        // 이름1 의 데이터는 ->  {name : 'Kim'};
+        // 이름1 의 데이터와 이름2의 데이터는 ->  {name : 'Kim'};
         /*
-            이름 == 이름2 ? => false 
-            각각의 메모리가 다르기 때문
+                       이름1        ->              |-------|
+                                                   |  data |
+                       이름2        ->              |_______|
         */
-        function change(obj) {
-            // obj.name = 'park'
-            obj = {name : 'park'};
-            // let obj = {name : 'park'};으로 된다. 값이 변경되는게 아님
-        }
-        change(이름);
 
+        var 이름1 = {name : 'kim'};
+        var 이름2 = {name : 'kim'};
+
+        function objectChange(obj) {
+            // obj.name = 'park';  // object의 name(값)이 바뀜
+            obj = {name : 'park'}  // 파라미터 변수 obj에 새로운 object를 생성 후 데이터 할당
+        }
+        objectChange(이름1)
+        console.log(이름1)
+
+
+        
 
     </script>
 </body>
