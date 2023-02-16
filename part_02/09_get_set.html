@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // set = 데이터를 변경하는 함수 (setting)
+        // get = 데이터를 꺼내오는 함수 (getting)
+
+
+        // get 함수는 return이 꼭 필요하다 (데이터를 꺼내야 하기 때문)
+        // set 함수는 파라미터 하나를 무조건 요구한다.
+        var 사람 = {
+            name: 'kang',
+            age: 28,
+            get nextAge() {
+                return this.age + 1;
+            },
+            // 데이터 조작 및 오류를 핸들링하기 쉽다!! 
+            // 데이터를 수정할 수 있는 방법이다
+            set setAge(age) {
+                this.age = parseInt(age);
+            }
+        };
+        console.log(사람.age);
+        사람.setAge = 20;
+        console.log('setAge = ' + 사람.age);
+        console.log('nextAge = ' + 사람.nextAge)
+
+
+        class 사람1 {
+            constructor() {
+                this.name = 'kang'
+                this.age = 27;
+            }
+            get nextAge() {
+                return this.age + 1;
+            }
+            set setAge(age) {
+                this.age = parseInt(age);
+            }
+        }
+        var me = new 사람1();
+        me.setAge = 28;
+        console.log(me.nextAge);
+
+        console.log('--------------------------------------------------------');
+
+        //quiz
+
+        // 1
+        class Animals{
+            constructor(name, color){
+                this.name = name;
+                this.color = color;
+            }
+            출력() {
+                console.log(`견종은 ${this.name}, 색상은 ${this.color}`);
+            }
+        }
+        
+        let dog1 = new Animals('말티즈','white');
+        dog1.출력();
+        // 2
+        class Cat extends Animals {
+            constructor(name, color, age) {
+                super(name, color);
+                this.age = age;
+            }
+            출력() {
+                console.log(`견종은 ${this.name}, 색상은 ${this.color}, 나이는 ${this.age}`);
+            }
+            get nextAge() {
+                return this.age + 1;
+            }
+        }
+        let cat1 = new Cat('코숏', 'white', 2);
+        cat1.출력();
+        console.log(cat1.nextAge);
+
+        // 4
+        class Unit {
+            constructor() {
+                this.fighting = 5;
+                this.hp = 100;
+            }
+            get battlePoint() {
+                return this.fighting + this.hp;
+            }
+            set heal(heal) {
+                this.hp = heal+this.hp;
+            }
+        }
+        let unit1 = new Unit();
+        console.log(unit1);
+        console.log(unit1.battlePoint)
+        unit1.heal = 50;
+        console.log(unit1.battlePoint)
+
+        // 5
+        var data = {
+            odd : [],
+            even : [],
+            get console() {
+                return [...this.odd, ...this.even].sort((a,b) => { return a - b });
+            },
+            setting1(...rest) {
+                for(let i=0; i<rest.length; i++) {
+                    if(rest[i] % 2 != 0) this.odd.push(rest[i]);
+                    else this.even.push(rest[i]);
+                }
+            }
+        };
+        data.setting1(1,5,2,10,66,7,101);
+        console.log(data);
+        console.log(data.console);
+
+        
+
+
+
+    </script>
+</body>
+</html>

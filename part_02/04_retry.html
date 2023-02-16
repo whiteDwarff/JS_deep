@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function Student(name, age = 15) {
+            this.name = name;
+            this.age = age;
+            this.sayHello = function(name) {
+                console.log(`안녕하세요. 저는 ${this.name}입니다.`);
+            }
+        }
+        // constructor에서 새로 생성되는 object = instance
+        let stu = new Student('kang');
+        let stu1 = new Student('kim', 16);
+
+
+        let stu2 = {
+            name : 'park',
+            age : 15,
+            sayHello() {
+                console.log(`안녕하세요 ${this.name}입니다.`);
+            }
+        }
+        stu2.sayHello();
+        console.log(stu);
+        stu.sayHello();
+        stu1.sayHello();
+
+        console.log('--------------------------------------------------------');
+        
+        function Products(name, price) {
+            this.name = name;
+            this.price = price;
+            this.부가세 = function () {
+                console.log(`${this.name}의 부가세는 ${this.price * 0.1}`);
+            }
+        }
+        
+        let pro1 = new Products('shirts', 50000);
+        let pro2 = new Products('pants', 60000);
+        
+        console.log(pro1, pro2);
+        pro1.부가세();
+        
+        console.log('--------------------------------------------------------');
+
+        // instance가  constructor의 속성을 상속받는다
+        // prototype은 유전자이다 
+        // constructor.prototype => prototype 속성을 확인 가능
+
+        // constructor에 prototype 속성을 추가
+        Student.prototype.gender = 'M';
+        // 모든 instance에 gender 속성 추가
+        console.log(stu.gender);
+
+
+        function NewArray(...rest) {
+            return [rest]
+        }
+
+        let a = NewArray(1,2,3,4,5);
+        let array = new Array(1,2,3,4,5);
+
+        // prototype은 함수에만 생성됨
+        // array.prototype = undefined
+
+        // 부모의 속성을 찾는다 __proto__
+        console.log(stu.__proto__, Student.prototype);
+
+        let parent = { name: 'kim' };
+        let child = {...parent}
+
+        child.__proto__ = parent;
+        console.log(child.name);
+
+        // quiz
+
+        function Student1(name, age) {
+            this.name = name;
+            this.age = age;
+            this.sayHello = function() {
+                console.log(`안녕하세요 저는 ${this.name}입니다. `)
+            }
+        }
+        let student1 = new Student1('kang', 15);
+        console.log(student1);        
+        student1.sayHello();
+        Student1.prototype.sayHi = function() {
+            console.log(this.name)
+        }
+        student1.sayHi();
+
+    </script>
+</body>
+</html>

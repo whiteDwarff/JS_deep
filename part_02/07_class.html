@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // class에서 함수 선언 방법
+        // object를 간단하고 쉽게 사용, 
+        class 부모 {
+            constructor(name) {
+                // constructor에서 선언 
+                this.name = name;
+                this.sayHi = function() {
+                    console.log(this.name + ' 입니다.');
+                }
+            }
+            // 부모의 prototype으로 선언
+            // 모든 instance가 사용가능, 관리 및 수정 가능
+            sayHello() {
+                console.log(`저는 ${this.name}입니다.`);
+            }
+        }
+        var 자식 = new 부모('park');
+        console.log(자식);
+        자식.sayHi();
+        자식.sayHello();
+
+        // 매개변수의 prototype을 출력 == 자식.__proto__
+        Object.getPrototypeOf(자식);
+
+        부모.prototype.say = function() {
+            console.log('안녕하세요');
+        }
+    </script>
+</body>
+</html>

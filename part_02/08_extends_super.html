@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //extends = 유사한 class를 만들어 사용할 때 사용 ( class 상속 )
+        class parents {
+            constructor(name) {
+                this.성 = 'kang';
+                this.name = name;
+            }
+            sayHi() {
+                console.log('안녕');
+            }
+        }
+        var 할아버지 = new parents('mun-ho');
+        console.log(할아버지);
+
+        class parents1 extends parents {
+            constructor(name) {
+                // extends 한 class는 this를 쓸 수 없다.
+                // super()를 사용하여야 함
+                // super() = extends 한 class의 속성을 모두 물려받는다. 
+
+                // parents의 class의 name을 그대로 사용할거다~
+                super(name);
+                // 해당 class에서 사용하는 속성
+                this.나이 = 28;
+            }
+            sayHi() {
+                console.log('안녕하세요');
+                // prototype에서 사용 = 부모의 prototype이다.
+                // extends한 class의 sayHi()를 그대로 사용하겠다 ~
+                super.sayHi();
+            }
+        }
+        var 아버지 = new parents1('문호');
+        console.log(아버지)
+        아버지.sayHi();
+
+
+    </script>
+</body>
+</html>
