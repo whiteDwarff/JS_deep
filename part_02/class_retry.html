@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        class 부모 {
+            constructor(name) {
+                this.name = name;
+                // instance의 내장함수, 상속
+                this.sayHi = function() { console.log('Hello ' + this.name); }
+            }
+            // 상속되는게 아닌 부모의 prototype
+            // 모든 instance가 사용 가능
+            sayHello() { console.log('Hello ' + this.name); }
+        }
+        const 자식 = new 부모('Mun-ho');
+        자식.sayHi()
+        console.log(자식)
+        console.log(자식.__proto__, 부모.prototype)
+        console.log(Object.getPrototypeOf(자식)); // prototype의 뿌리를 찾는 함수
+        
+        부모.prototype.sayHello =  function() { console.log('안녕하세요 저는 ' + this.name + ' 입니다.'); }
+        자식.sayHello();
+
+        class 할아버지 {
+            constructor(lastName) {
+                this.firstName = '강';
+                this.lastName = lastName;
+            }
+            sayHi() { console.log('안녕 저는 할아버지에요.'); }
+        }
+        const 할아버지1 = new 할아버지('만덕');
+        
+        class 아버지 extends 할아버지 {
+            constructor(lastName, age) {
+                super(lastName);
+                this.age = age;
+            }
+            sayHi() { 
+                // console.log('안녕 저는 아버지에요.'); 
+                super.sayHi(); // 부모의 prototype을 실행시켜주세요 ~    
+            }
+        }
+        const 아버지1 = new 아버지('만수', 54);
+
+        할아버지.prototype.sayHello = function() { console.log(`안녕하세요 ${this.firstName}${this.lastName} 입니다.`)}
+        할아버지1.sayHello();
+        아버지1.sayHello();
+        아버지1.sayHi();
+
+        const 사람 = {
+            name : 'kang',
+            age : 28,
+            // get : return 필요, 데이터를 가져오는 함수
+            get nextAge() { return this.age + 1; },
+            // set 하나의 매개변수가 필요, 데이터를 셋팅하는 함수
+            set setAge(age) { this.age = parseInt(age); }
+        };
+        사람.setAge = 21;
+        console.log(사람.age);
+        console.log(사람.nextAge);
+        /*
+            함수로 object 데이터를 다루는 이유
+            1. object 자료가 복잡할 때 이득
+            2. object 자료 수정 시 편리
+        */
+
+        class Human {
+            constructor() {
+                this.name = 'park';
+                this.age = 28;
+            }
+            get nextAge() { return this.age+1 }
+            set setAge(age) {this.age = parseInt(age) }
+        }
+        const human1 = new Human();
+        console.log(human1.nextAge);
+        human1.setAge = '220';
+        console.log(human1.age);
+
+
+
+
+
+
+        class Dog {
+            constructor(name, color) {
+                this.name = name;
+                this.color = color;
+            }
+        }
+        const dog1 = new Dog('말티즈', 'white');
+        const dog2 = new Dog('진돗개', 'brown');
+        console.log(dog1, dog2);
+
+        class Cat extends Dog {
+            constructor(name, color, age) {
+                super(name, color);
+                this.age = age;
+            }
+            get nextAge() { return this.age + 1; }
+        }
+        const cat1 = new Cat('코숏', 'white', 3);
+        const cat2 = new Cat('러시안블루', 'grey', 1);
+        console.log(cat1, cat2);
+        console.log(cat1.nextAge);
+
+
+        class Unit { 
+            constructor() {
+                this.fight = 5;
+                this.hp = 100;
+            }
+            get battlePoint() { return this.fight + this.hp };
+            set heal(heal) { this.hp = this.hp + heal};
+        }
+
+        const unit1 = new Unit();
+        console.log(unit1.battlePoint);
+        unit1.heal = 50;
+        console.log(unit1.battlePoint);
+        console.log(unit1.hp);
+
+
+
+        const data = {
+            odd : [],
+            even : [],
+            setting(...rest) {
+                rest.forEach( data => {
+                    if(data % 2 == 0) this.even.push(data); 
+                    else this.odd.push(data);
+                })
+            },
+            get getData() { return [...this.odd, ...this.even].sort(function(a,b) { return a-b }); }
+        }
+        data.setting(2,34,64,5131,56,4,1,8,99);
+        console.log(data);
+        console.log(data.getData);
+
+    </script>
+</body>
+</html>
