@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        const arr = [2,3,4,5];
+        // Destructuring
+        // 직관적으로 변수를 생성가능
+        // 각 array의 자릿수에 맞춰 값을 대입
+        var [a,b,c] = [2,3,4];
+
+        // default 변수 사용가능
+        var [a,b,c = 10 ] = [2,3];
+        console.log( a,b,c );
+
+        // c = undefined
+        var [a,b,c] = [2,3];
+        console.log( a,b,c );
+
+        var obj = {name : 'kim', age : 25};
+        var name = obj.name;
+        var age = obj.age;
+
+        // 변수명을 object의 key와 같이 써야함 ( array처럼 자릿수가 아닌 key를 맞춰준다ㅓ)
+        var {name, age} = { name : 'kim', age : 25 };
+        // object의 key 값을 이름으로 바꿀거야 ~, default 값은 kang 이야 ~
+        var {name : 이름 = 'kang', age = 25} = { name : 'kim'};
+        console.log(이름);
+
+        var name = 'kim', age = 30;
+
+        var obj = { name : name , age : age};
+        // 위 코드 한줄과 같은 뜻
+        var obj = { name, age };
+
+        
+        var obj = { name : 'kim' , age : 30 };
+        function f( { name, age }) { 
+            console.log(name)
+            console.log(age)
+        };
+
+        f(obj);
+
+
+        const size = {
+            body : {
+                height: 175, weight: 62
+            },
+            size : ["상의 100", "바지 27"]
+        };
+
+        const size2 = {
+            body : {height, weight},
+            size : [상의, 하의]
+        } = size
+
+
+
+    </script>
+</body>
+</html>
