@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function plus(a,b,c) {
+            console.log(a+b+c);
+        }
+        plus(1,2,3);
+
+        const arr = [10,20,30]
+
+        plus.apply(undefined, arr);
+        // array의 []를 제거해서 각 매개변수의 위치에 배치시킴
+        plus(...arr);
+
+        //--------------------------------------------------------
+
+        const person = {
+            hello : function() {
+                if(this.name == undefined) 
+                    console.log('안녕');
+                else
+                    console.log('안녕' + this.name);
+            }
+        }
+        const person2 = {
+            name : '손흥민'
+        }
+        person.hello()
+        person.hello.apply(person2);
+
+    </script>
+</body>
+</html>

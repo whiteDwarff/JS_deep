@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">BUTTON</button>
+    <script>
+        function 기계(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        const obj = new 기계('kang', 28)
+        console.log(obj.name, obj.age);
+
+        document.getElementById('btn').addEventListener('click', function(e) {
+            //console.log(this);              // event 요소
+            //console.log(e.currentTarget);   // event가 동작하는 target
+
+
+            const array = [1,2,3];
+            // 일반함수에서 this keyword를 사용하면 this는 window가 된다.
+            array.forEach( function() {
+                console.log(this)
+            })
+        })
+
+        const obj1 = {
+            names : ['김', '이', '박'],
+            함수 : function() {
+                // console.log(this)
+                obj1.names.forEach(() => { console.log(this)})
+            }
+        }
+        obj1.함수();
+
+    </script>
+</body>
+</html>

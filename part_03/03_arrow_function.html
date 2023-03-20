@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">button</button>
+    <script>
+        
+        // arrow function 
+        // 파마미터가 하나일 때 (), {}, return 생갹가능
+        // this 값은 window 객체로 적용됨 
+        const 함수 = a => console.log(a += 10);
+        함수(5);
+
+        [1,2,3,4].forEach( item => console.log(item) )
+
+        document.getElementById('btn').addEventListener('click', e => {
+            console.log(e.currentTarget);
+        })
+        const obj = {
+            함수 : () => console.log(this)
+        }
+        obj.함수();
+
+        // --------------------------------------------------------------
+
+        const human = {
+            name : '손흥민',
+            sayHi : function() {
+                console.log(`안녕 나는 ${this.name}`)
+            }
+        }
+        human.sayHi();
+
+        const arr = { data : [1,2,3,4,5] };
+        arr.plus = () => {
+            let sum = 0;
+            arr.data.forEach( item => {
+                sum += item;
+            })
+            return sum;
+        }
+        console.log('plus : ' + arr.plus());
+
+        document.getElementById('btn').addEventListener('click', e => {
+            setTimeout( () => console.log(e.target.innerHTML), 1000);
+        })
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const array = ['hello', 'world'];
+        // []를 제거해줌
+        console.log(...array)
+
+        const str = 'hello';
+        // 문자를 하나씩 해체 -> 'h','e','l','l','o'
+        console.log(...str)
+
+        const a = [1,2,3];
+        const b = [4,5];
+
+        // array 합치기, 복사 가능
+        const c = [...a,...b];
+        console.log(c)
+
+
+        //----------------------------------------------------------
+        const d = [1,2,3];
+        const e = [...d];
+        console.log(d,e);
+        d[3] = 4;
+        console.log(d);
+        console.log(e);
+        //----------------------------------------------------------
+
+        // spread 연산자는 함수소괄호, 오브젝트 중괄호내, 어레이 대괄호내에서 보통 사용하셔야합니다.  !!!!!!
+        const obj1 = { a : 1, b : 2}
+        // key가 중복인 경우 마지막에 나온 key의 value를 가지고 온다.
+        const obj2 = {...obj1, a : 2};
+        console.log(obj1)
+        console.log(obj2)
+
+
+
+        </script>
+</body>
+</html>

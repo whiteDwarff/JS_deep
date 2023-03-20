@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // strict mode
+        // 엄격한 javascript ( 변수 선언 시 keywords 필요 )
+        'use strict';
+        
+        function 함수() { console.log(this) }
+
+        console.log(this)
+        함수()
+
+        const obj = { 
+            name : 'kang',
+            // object 내 this는 object 자를 뜻함.
+            함수 : function () { console.log(this) }
+        }
+
+        console.log(obj.name);
+        obj.함수();
+
+        const object = {
+            data : {
+                // arrow function은 함수 밖에 있는 this 값을 그대로 사용 ( window )
+                함수 : () => { console.log(this) }
+            }
+        }
+        object.data.함수();
+
+    </script>
+</body>
+</html>
