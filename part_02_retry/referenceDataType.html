@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var name1 = { name: 'kim' };
+        var name2 = name1;
+
+        console.log(name1, name2);
+
+        // array 및 object는 데이터가 변수에 저장되는게 아니라 데이터를 참조하는 것임.
+        name1.name = 'park';
+        console.log(name1, name2);
+
+        var name2 = { name : 'kim'};
+
+        // 데이터의 속성이 변경됨
+        function changeName(obj, name) { obj.name = name; }
+        changeName(name1, 'park');
+        console.log(name1);
+
+        // 데이터의 속성이 변경되지않음.
+        // obj라는 파라미터는 새로운 변수로 생성되기 때문 !!!!!!
+        // obj = {}는 값을 대입하는것임.
+        function changeName2(obj) { obj = { name : 'kim'}; };
+        changeName2(name1);
+        console.log(name1)
+    </script>
+</body>
+</html>

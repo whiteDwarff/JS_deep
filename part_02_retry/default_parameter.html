@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+    <script>
+        function plus(a, b=5) {
+            console.log(a + b);
+        }
+        plus(2)
+
+        function minus(a, b) {
+            if(b == null) b=5
+            console.log(a-b)
+        }
+        minus(2)
+
+        function multi(a, b = a * 5) {console.log(a * b)};
+        multi(2);
+
+        /*
+            default parameters
+                - 매개변수의 값이 없거나 반복되는 값이 들어갈 때  사용가능
+                - 정해진 값, 다른 매개변수의 값, 연산, 함수까지 대입하여 사용가능
+        */
+
+        // ----------------------------------------------------------
+
+        function f(a,b,c) {
+            // console.log(arguments[0]);
+            // console.log(arguments[1]);
+            // console.log(arguments[2]);
+            console.log(arguments);
+            for(let i=0; i<arguments.length; i++) console.log(arguments[i]);
+        }
+        f(1,2,3)
+
+        /*
+            arguments
+                - 모든 매개변수를 한꺼번에 다루고 싶을 경우 사용
+                - 모든 매개변수를 array 안에 넣은 변수
+        */
+    </script>
+</body>
+</html>
