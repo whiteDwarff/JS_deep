@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 부모
+        function Student(name, age) {
+            this.name = name;
+            this.age = age;
+            this.sayHi = function() { console.log(`안녕하세요. ${this.name}입니다.`); }
+        }
+
+        // 자식
+        const student1 = new Student('Kang', 28);
+
+        console.log(Student.prototype);
+        Student.prototype.gender = 'Man';
+
+        console.log(student1.gender);
+        
+        // toString()은 javaScript의 내장함수임.
+        // constructor의 부모요소는 javaScript.
+        console.log(student1.age.toString());
+
+
+        // 사용자가 array를 만들 떄
+        var array = [1,2,3];
+        // javaScript가 array를 만들 때 (실제 array가 만들어지는 방식)
+        // object 또한 new Object()를 통해 생성됨.
+        var array = new Array(1,2,3);
+
+        console.log('Array constructor의 내장함수 : ');
+        console.log(Array.prototype);
+
+        // constructor의 유전자를 출력해줘 ~~, method 출력
+        console.log(student1.__proto__);
+        console.log(Student.prototype);
+
+
+        const parent = { name: 'kim'};
+        const children = {};
+        
+        // __proto__를 통해 부모의 유전자를 강제로 등록
+        children.__proto__ = parent;
+        console.log(children.name);
+
+        console.log(student1);
+
+
+        console.log('--------------------------------------------------------');
+
+        /*
+            prototype : 
+                - 유전자, constructor에서 생성된 function은 instance가 모두 사용가능
+                - 함수에만 생성됨.
+                - prototype은 instance의 속성을 생성하는 함수 ????
+        */
+
+        function Human(name, age) {
+            this.name = name;
+            this.age = age;
+            this.sayHi = function () { console.log(`안녕 나는 ${this.name}이야`); };
+        }
+        const hu1 = new Human('kang', 28);
+        hu1.sayHi();
+
+    
+
+        Array.prototype.remove = function () {
+
+            for(let i=0; i<this.length; i++) {
+                if(this[i] == 3) this.splice(i, 1);
+            }
+        }
+        var arr = [1,2,3]
+        arr.remove(arr);
+        console.log(arr);
+
+    </script>
+</body>
+</html>

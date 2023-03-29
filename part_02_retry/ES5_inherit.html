@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // ES5 상속
+        // Object.create(prototypeObject);
+
+        const parent = { name : 'Kim', age : 50 };
+        const child = Object.create(parent);
+
+        // child는 {}출력
+        console.log(parent, child);
+        // parent의 name과 age 상속
+        console.log(child.name, child.age);
+        // child의 name속성이 없으니 parent의 name속성을 상속받아 출력
+
+        child.age = 20;
+        console.log(child.age);
+
+        const child2 = Object.create(child);
+        console.log(child2.age);
+        
+        child2.age = 15;
+        console.log(child2.age);
+    </script>
+</body>
+</html>

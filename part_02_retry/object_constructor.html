@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        const stu1 = {
+            name : 'kim',
+            age : 15,
+            sayHi() {
+                console.log(`안녕하세요. ${this.name}입니다.`);
+            }
+        }
+
+        stu1.sayHi();
+
+        function Student(name, age) {
+            this.name = name;
+            this.age = age;
+            this.sayHi = function() { console.log(`안녕하세요. ${this.name}입니다.`); }
+        }
+
+        const stu2 = new Student('kang', 28);
+        console.log(stu2)
+        stu2.sayHi();
+        
+
+
+        /*
+            constructor :
+                - 비슷한 유형의 object를 찍어내고 싶을 떄 사용
+                - constructor로 만든 object는 출력시 constructor의 이름과 깉이 출력됨.
+                - constructor로 새로 만들어 낸 object는 instance라고 부른다.
+        */
+
+        function Products(name, price) {
+            this.name = name;
+            this.price = price;
+            this.부가세  =  function() { console.log(this.price * 0.1); }
+        }
+        const shirts = new Products('shirts', 50000);
+        shirts.부가세();
+    </script>
+</body>
+</html>
