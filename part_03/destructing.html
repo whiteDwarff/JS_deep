@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // array안의 값을 변수에 담으려면?
+        var arr = [2,3,4];
+
+        var a = arr[0];
+        var b = arr[1];
+        var c = arr[2];
+
+        // 직관적으로 변수를 만들 수 있음 !!
+        var [a,b,c] = [2,3,4];
+        console.log(a,b,c);
+        
+        // variable과 value의 값이 일치하지 않음 -> c = undefined
+        var [a,b,c] = [2,3];
+        console.log(a,b,c);
+
+        // default 변수값 지정가능
+        var [a,b,c=10] = [2,3];
+        console.log(a,b,c);
+
+        // a, b는 모두 undefined
+        var [a,b,c=10] = [];
+        console.log(a,b,c);
+
+        // ----------------------------------------------------------------
+        
+        var obj = {
+            name : 'kim',
+            age : 27
+        }
+        // object의 데이터를 변수에 대입
+        var name = obj.name;
+        var age = obj.age;
+        
+        // 변수의 이름을 데이터의 key의 값과 동일하게 사용해야함!!
+        // default parameter 사용가능
+        var {name, age=10} = {name: 'kim', age : 30};
+        console.log(name, age);
+        
+        // 변수명을 변경가능 ( key : valiable)  
+        // default parameter 사용가능
+        var {name : firstName='kang', age=10} = {name: 'kim', age : 30};
+        console.log(firstName, age);
+        
+        // ----------------------------------------------------------------
+        
+        // 변수를 object에 집어넣기
+        var name = 'kang';
+        var age = 28;
+        
+        var obj = {
+            name : name,
+            age : age
+        }
+        console.log(obj);
+        
+        // 위 코드를 축약해서 사용가능 !!   
+        var obj = {
+            name,
+            age
+        }
+        console.log(obj, obj.name, obj.age);
+        
+        // ----------------------------------------------------------------
+
+        // function parameter에도 사용가능
+        var obj = {
+            name : 'kang',
+            age : 28
+        }
+
+        function f( {name, age}) {
+            console.log(name)
+            console.log(age)
+        }
+        f( { name : 'kim', age : 30 });
+
+        const fun = ([a,b]) => {console.log(a,b)} 
+        fun([2,3]);
+
+        const person = {
+            body : {
+                height : 190,
+                weight : 70
+            },
+            size : ["상의 Large", "바지 30인치"]
+        }
+
+        var [a,b,c,d] = [ person.body.height, person.body.weight
+                        , person.size[0], person.size[1] ];
+
+        console.log(a,b,c,d);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        class Dog {
+            constructor(type, color) {
+                this.type = type;
+                this.color = color;
+            }
+        }
+        const dog1 = new Dog('말티즈', 'white');
+        const dog2 = new Dog('진돗개', 'brown');
+
+        console.log(dog1, dog2);
+
+        class Cat extends Dog {
+            constructor(type, color, age) {
+                super(type, color);
+                this.age = age;
+            }
+        }
+        const cat1 = new Cat('코숏', 'white', 2);
+        const cat2 = new Cat('러시안블루', 'brown', 1);
+
+        console.log(cat1, cat2);
+        
+        class Unit {
+            constructor(fight, hp) {
+                this.fight = fight;
+                this.hp = hp;
+            }
+            get battlePoint() {
+                return this.fight + this.hp;
+            }
+            set healing(heal) {
+                this.heal+=heal;
+            }
+        }
+
+        const unit1 = new Unit(5, 100);
+        console.log(unit1.battlePoint);
+        unit1.healing = 50;
+        console.log(unit1.hp);
+
+        const data = {
+            odd: [],
+            even: [],
+            set setter(num) {
+                if(num % 2 == 0) this.even.push(num);
+                else this.odd.push(num);
+            },
+            get getter() {
+                let basket = [...this.odd, ...this.even];
+                return basket.sort();
+
+            }
+        }
+
+        data.setter = 2;
+        data.setter = 4;
+        data.setter = 1;
+        data.setter = 6;
+        data.setter = 3;
+        data.setter = 5;
+        data.setter = 9;
+        console.log(data);
+
+        console.log(data.getter);
+    </script>
+</body>
+</html>
