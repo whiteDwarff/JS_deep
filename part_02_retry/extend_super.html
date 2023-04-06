@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class 할아버지 {
+            constructor(name) {
+                this.firstName = 'kim';
+                this.name = name;
+            }
+            sayHi() {
+                // console.log('안녕 저는 할아버지에요');
+                console.log(`안녕 나는 ${this.name}`);
+            }
+        }
+        class 아버지 extends 할아버지 {
+            constructor(name, age){
+                // 부모 클레스의 constructor을 그대로 물려받음
+                // extends 하였을 경우 부모의 constructor에 사용된 매개변수를 super()안에 넣어줘야함
+                super(name);
+                this.age = age;
+            }
+            sayHi() {
+                // console.log("안녕 저는 아버지에요.");
+                // 부모의 프로토타입을 실행
+                super.sayHi();
+            }
+        }
+        const grand = new 할아버지('minsu');
+        grand.sayHi();
+
+        const father = new 아버지('mansu', 26);
+        console.log(father);
+        father.sayHi();
+    </script>
+</body>
+</html>

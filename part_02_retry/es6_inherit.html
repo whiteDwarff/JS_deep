@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        class Parent {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            sayHi() {
+                console.log(`Hello ${this.name}!`);
+            }
+            sayHi2() {
+                console.log(`안녕 나는 ${this.age}살 ${this.name}야`);
+            }
+        }
+        
+
+        const child = new Parent('강문호', 28);
+        child.sayHi();
+        child.sayHi2();
+
+        const child2 = new Parent('안민정', 28);
+        child2.sayHi();
+        child2.sayHi2();
+    </script>
+</body>
+</html>
