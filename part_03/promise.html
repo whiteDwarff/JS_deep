@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // promise = 성공 / 실패를 확인할 수 있음.
+        // promise 객체는 resolve, reject가 필수로 들어감
+        const promise = new Promise(function(resolve, reject){
+            // resolve() : 성공
+            // reject() : 실패
+                setTimeout( () => resolve(10), 1000);
+            // ()안의 매개변수는 함수가 실행되고 .then 까지 전달됨
+        });
+
+        promise.then(function(a) {
+            // 성공 시 실행되는 코드
+            console.log('성공했어요  ' + a);
+        }).catch( () => {
+            // 실패 시 실행되는 코드
+            console.log('실패했어요');
+        })
+        
+        /*
+            promise의 3가지 상태
+                - fulfilled : 성공
+                - pending   : 판정대기중 
+                - rejected  : 실패
+        */      
+        // setInterval( () => console.log(promise), 1000)
+    
+    </script>
+</body>
+</html>

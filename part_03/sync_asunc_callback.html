@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            코드가 한줄씩 처리되는 현상 -> 동기식 처리
+            console.log(1);
+            console.log(2);
+            console.log(3);
+            
+            코드의 실행 중 대기시간이 없고 다음코드로 넘어가는 현상 -> 비동기식 코드
+            console.log(1);
+            setTimeout(), ajax, eventListener은 비동기식 코드이다.
+            대기시간동안 다른 코드가 실행됨
+            setTimeout( () => console.log(2), 1000 );
+            console.log(3);
+        */
+        const firstFunction  = (a) => {
+            console.log(10)
+            a();
+        }
+        const secondFunction = () => {
+            setTimeout( () => console.log(20), 1000)
+        } 
+
+        firstFunction(secondFunction)
+        console.log(30)
+
+
+    </script>
+</body>
+</html>

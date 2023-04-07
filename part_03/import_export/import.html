@@ -11,9 +11,16 @@
     <script type="module">
 
         // 함수 import
-        import {plus} from '../import_export/export.js';
+        import {plus, Human} from '../import_export/export.js';
         console.log('plus : ' + plus)
         console.log(plus(3,4));
+        console.log(Human);
+        
+        const person = new Human('person', 20);
+        console.log(person);
+        person.setAge = 2
+        console.log(person.age)
+        
         // import 가져올 변수명(작명가능) from '경로'
         // export한 모든 내용을 가져오지 않고 특정변수만 사용 가능함
         // import a from '../import_export/export.js'
@@ -24,8 +31,8 @@
         console.log(values,c,d,e);        
 
         // 위 두개를 합치면
-        // import 시 변수명을 바꾸려면 
-        // export 변수 as 바꿀 변수명
+        // default , {....}
+        // import 시 변수명을 바꾸려면  export 변수 as 바꿀 변수명
         import a, {b as values,c,d,e} from '../import_export/export.js';
 
 
