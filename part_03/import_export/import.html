@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="module">
+
+        // 함수 import
+        import {plus} from '../import_export/export.js';
+        console.log('plus : ' + plus)
+        console.log(plus(3,4));
+        // import 가져올 변수명(작명가능) from '경로'
+        // export한 모든 내용을 가져오지 않고 특정변수만 사용 가능함
+        // import a from '../import_export/export.js'
+        console.log(a);
+
+        // export 파일의 변수명을 그대로 사용해야함
+        // import { b,c,d,e } from '../import_export/export.js';
+        console.log(values,c,d,e);        
+
+        // 위 두개를 합치면
+        // import 시 변수명을 바꾸려면 
+        // export 변수 as 바꿀 변수명
+        import a, {b as values,c,d,e} from '../import_export/export.js';
+
+
+        // export 파일의 모든 변수를 import해오기
+        import value, *  as data from '../import_export/export.js';
+        console.log(value);
+        console.log(data);
+        console.log(data.b)
+        console.log(data.c)
+        console.log(data.d)
+        console.log(data.e)
+
+        
+    </script>
+</body>
+</html>
