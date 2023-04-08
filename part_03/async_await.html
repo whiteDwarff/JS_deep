@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btb1">클릭</button>
+    <script>
+        // async를 함수앞에 붙이면 함수 실행 후 Promise 오브젝트가 남음
+        // 성공시 발생하는 코드만 확인가능
+        // 실패를 일부러 발생시키는 코드 return Promise.reject('fail')
+        async function 더하기(){
+            // return 1+1;
+            return Promise.reject('fail')
+        }
+        더하기()
+        .then( result => console.log(result))
+        .catch( e => console.log('실패'))
+        
+        // async 내에서 promise객체 생성
+        async function minus(){
+            const promise = new Promise( (resolve, reject) => {
+                let value = 2-1;
+                resolve(value);
+            })
+
+            // promise.then( result => console.log(`답 : ${result}`))
+            
+            // await은 async안에서만 사용가능함
+            // js는 해당 키워드를 만나면 비동기 코드를 만나도 코드가 끝날때 까지 기다린다.
+
+            try {
+                const result = await promise;
+                console.log(result);
+            } catch {
+                console.log('error')
+            }
+        }
+    
+        minus();
+        console.log("버튼을 클릭하세염");
+
+        async function clickBtn() {
+            const promise1 = new Promise((resolve, reject)=> {
+                const btn = document.getElementById('btb1');
+                btn.addEventListener('click', () => {
+                    resolve('성공했어요.');
+                })
+            })
+            const result = await promise1;
+            try {
+                console.log(result);
+            } catch {
+                console.log('error')
+            }
+        }
+        clickBtn();
+        
+    </script>
+</body>
+</html>
